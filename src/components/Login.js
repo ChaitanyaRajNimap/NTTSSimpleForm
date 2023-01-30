@@ -17,7 +17,7 @@ const passwordRegEx = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{4,6}$/;
 let isValidEmail = false;
 let isValidPassword = false;
 
-const Login = () => {
+const Login = ({navigation}) => {
   const [inputs, setInputs] = useState({
     email: '',
     password: '',
@@ -97,10 +97,13 @@ const Login = () => {
               password: '',
             };
           });
-          Alert.alert(
-            'Login creds : ',
-            `Email : ${data.email} \n Password: ${data.password}`,
-          );
+          // Alert.alert(
+          //   'Login creds : ',
+          //   `Email : ${data.email} \n Password: ${data.password}`,
+          // );
+          navigation.navigate('Welcome', {
+            email: inputs.email,
+          });
         } else {
           // Alert.alert(`Entered creds doesn't matched!`);
         }
